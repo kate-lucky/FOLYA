@@ -11,6 +11,9 @@ All Rust projects should include the following core dependencies:
 
 | Crate | Version | Purpose |
 | :--- | :--- | :--- |
+| **polars** | 0.38+ | Dataframes with Arrow memory model & Lazy API |
+| **lightgbm-sys**| 0.2+ | FFI bridge to LightGBM (C++ Gradient Boosting) |
+| **rayon** | 1.8+ | Data-parallelism library for multi-core scaling |
 | **tokio** | 1.x | Async runtime |
 | **serde** | 1.x | Serialization/Deserialization |
 | **serde_json** | 1.x | JSON processing |
@@ -18,6 +21,7 @@ All Rust projects should include the following core dependencies:
 | **sqlx** | 0.7+ | Database interaction |
 | **chrono** | 0.4+ | Time and date handling |
 | **anyhow** | 1.x | Error handling |
+| **thiserror** | 1.x | Library-level error handling |
 | **tracing** | 0.1+ | Logging and tracing |
 
 ## 3. Market Data APIs (To be integrated)
