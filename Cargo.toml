@@ -1,0 +1,11 @@
+[package]
+name = "folya"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+polars = { version = "0.46", features = ["lazy", "csv", "temporal"] }
+thiserror = "1.0"
+
+[dev-dependencies]
+tempfile = "3.14"
