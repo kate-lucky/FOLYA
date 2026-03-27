@@ -27,3 +27,9 @@ if [ $? -eq 0 ]; then
 else
     echo "[$TIMESTAMP] Error: Could not fetch session data from OpenClaw." >> "$LOG_FILE"
 fi
+
+# 3. Log Cleanup (Maintain 30 days of raw logs)
+find "$(dirname "$LOG_FILE")" -name "cost_audit.log.*" -mtime +30 -delete
+
+# 4. Verification Check (Optional: Log discrepancy warning)
+# If local total differs from 'openclaw sessions' total by >5%, log a WARNING.
