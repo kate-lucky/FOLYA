@@ -1,0 +1,42 @@
+# FOLYA Development Workflow Specification 🐱💼
+
+This document defines the mandatory git workflow for all agents (including the Orchestrator and all sub-agents) to ensure code isolation, safety, and human oversight.
+
+## 1. Role-Based Repository Access
+
+- **Upstream (Source of Truth)**: `https://github.com/eBioRing/FOLYA.git` (Remote: `origin`)
+- **Isolation/Agent Fork**: `https://github.com/kate-lucky/FOLYA.git` (Remote: `personal`)
+
+## 2. Agent Branching Protocol
+
+### For Sub-Agents:
+1.  **Strict Isolation**: Sub-agents MUST NOT commit to the `main` or `kate-dev` branches of either repository.
+2.  **Feature Branches**: Every task must be performed on a dedicated sub-branch within the `personal` repository.
+3.  **Naming Convention**: `feat/agent-<id>/<task-description>` (e.g., `feat/rust-coder-01/binance-api-connector`).
+4.  **Submission**: Once a task is complete, the sub-agent pushes its branch to the `personal` remote and notifies the Orchestrator (Kate).
+
+### For the Orchestrator (Kate):
+1.  **Branch Management**: Authorize and manage sub-agent feature branches.
+2.  **Consolidation**: Pull completed feature branches from the `personal` remote to the local `workspace/folya` for review and testing.
+3.  **Push to Personal**: Once verified locally, the Orchestrator pushes the consolidated work to the `kate-dev` branch of the `personal` repository.
+4.  **Merge Request (PR)**: Create a Pull Request (Merge Request) from `kate-lucky/FOLYA:kate-dev` to `eBioRing/FOLYA:kate-dev`.
+
+## 3. Step-by-Step Task Workflow
+
+| Step | Action | Responsibility | Target Branch/Repo |
+| :--- | :--- | :--- | :--- |
+| **1** | Initialize Task | Orchestrator | Local `kate-dev` |
+| **2** | Create Feature Branch | Sub-Agent | `personal:feat/...` |
+| **3** | Development & Atomic Commits | Sub-Agent | `personal:feat/...` |
+| **4** | Push to Agent Fork | Sub-Agent | `personal` Repository |
+| **5** | Review & Local Merge | Orchestrator | Local `kate-dev` |
+| **6** | Push to Personal kate-dev | Orchestrator | `personal:kate-dev` |
+| **7** | Create Merge Request | Orchestrator | `origin:kate-dev` |
+
+## 4. Safety Constraints
+- **NO parallel local edits**: Only one agent may hold the "write lock" on a specific file at a time.
+- **NO direct pushes to origin/main**: The `main` branch is reserved for stable releases and is managed exclusively by the Human Supervisor (Unka).
+- **NO plain text secrets**: All API keys and deployment secrets must remain outside the git history.
+
+---
+*Created by Kate (Professional Secretary & Agent Orchestrator)*
