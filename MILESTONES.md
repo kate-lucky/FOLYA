@@ -20,15 +20,15 @@ This document tracks the strategic progression and resource consumption of the *
 **Total Monthly Budget (Consolidated)**: £50 (~$63 USD)
 **Reporting Period**: 2026-03-27 to 2026-04-27
 
-### 2.1 Consumption Summary (Current Session/Milestone M1)
+### 2.1 Consumption Summary (M1 Foundation Phase)
 
 | Resource | Model | Requests | Input Tokens | Output Tokens | Est. Cost (USD) |
 | :--- | :--- | :--- | :--- | :--- | :--- |
-| **Gemini API** | Gemini-Flash | 12 | ~45k | ~5k | $0.008 |
+| **Gemini API** | Gemini-Flash | 148 | ~281k | ~2.7k | $0.021 |
 | **Grok API** | Grok-4-1-Fast | 0 | 0 | 0 | $0.000 |
 | **ChatGPT (OAuth)**| GPT-4o | 15 | N/A (Sub) | N/A (Sub) | $0.000* |
 | **Kimi AI Key** | Kimi-Code | 4 | ~12k | ~3k | $0.000** |
-| **TOTAL** | | **31** | | | **$0.008** |
+| **TOTAL** | | **167** | | | **$0.021** |
 
 *\* ChatGPT is under a fixed monthly subscription; usage does not impact the variable API budget.*
 *\*\* Kimi usage is tracked against the monthly AI Key quota; no direct USD cost per request.*
