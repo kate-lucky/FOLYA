@@ -9,17 +9,13 @@ This document defines the mandatory git workflow for all agents (including the O
 
 ## 2. Agent Branching Protocol
 
-### For Sub-Agents:
-1.  **Strict Isolation**: Sub-agents MUST NOT commit to the `main` or `kate-dev` branches of either repository.
-2.  **Feature Branches**: Every task must be performed on a dedicated sub-branch within the `personal` repository.
-3.  **Naming Convention**: `feat/agent-<id>/<task-description>` (e.g., `feat/rust-coder-01/binance-api-connector`).
-4.  **Submission**: Once a task is complete, the sub-agent pushes its branch to the `personal` remote and notifies the Orchestrator (Kate).
-
 ### For the Orchestrator (Kate):
 1.  **Branch Management**: Authorize and manage sub-agent feature branches.
 2.  **Consolidation**: Pull completed feature branches from the `personal` remote to the local `workspace/folya` for review and testing.
-3.  **Push to Personal**: Once verified locally, the Orchestrator pushes the consolidated work to the `kate-dev` branch of the `personal` repository.
-4.  **Merge Request (PR)**: Create a Pull Request (Merge Request) from `kate-lucky/FOLYA:kate-dev` to `eBioRing/FOLYA:kate-dev`.
+3.  **Strict Isolation**: **NEVER** push directly to the `origin` repository. All contributions must be pushed to the `personal` remote (`kate-lucky/FOLYA`).
+4.  **Merge Request (PR)**: Create a Pull Request (PR) from `kate-lucky/FOLYA:kate-dev` to `eBioRing/FOLYA:kate-dev`. The Orchestrator will provide the PR link to the Human Supervisor for final merge.
+
+### For Sub-Agents:
 
 ## 3. Step-by-Step Task Workflow
 
