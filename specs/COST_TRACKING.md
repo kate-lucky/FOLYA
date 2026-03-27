@@ -47,8 +47,16 @@ As the **Agent Orchestrator**, I will integrate cost tracking into the **REVIEWE
 2.  **Phase End**: Retrieve new token counts and calculate the `Delta`.
 3.  **Automated Logging**: The Reviewer will automatically APPEND the cost of each sub-agent task to the **`MILESTONES.md`** file during the merge process.
 
-## 4. Constraint: The "Audit Window"
-I will perform a **Cost Audit** every 24 hours or after every major milestone merge. This ensures we stay within the £50/month boundary with a "buffer" for unexpected spikes.
+## 4. Data Verification & Integrity
+To ensure the accuracy of the automated cost tracking:
+- **Periodic Manual Audit**: Every 24 hours, the Orchestrator will manually run `openclaw sessions --json --active 1440` and compare the cumulative totals against the `MILESTONES.md` file. Any discrepancy >5% will be investigated.
+- **Source of Truth**: The `openclaw sessions` command is the definitive source of truth for the current session's token consumption.
+
+## 5. Log Rotation & Cleanup (The Janitor)
+To prevent the audit logs from consuming excessive disk space:
+1. **Rotation**: The `cost_audit.log` will be rotated weekly. The last 4 weeks of logs will be kept as `.log.1`, `.log.2`, etc.
+2. **Cleanup**: Any logs older than 30 days will be automatically deleted by the `cost_auditor.sh` script.
+3. **Archive**: Before deletion, significant milestone summaries are already permanently recorded in `MILESTONES.md`, ensuring the high-level financial history is never lost.
 
 ---
 *Created by Kate (Professional Secretary & Agent Orchestrator)*

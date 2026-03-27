@@ -3,14 +3,13 @@
 This document defines the mandatory audit procedures for the **Reviewer** role (the Orchestrator's primary function during code integration).
 
 ## 1. Core Mission
-The Reviewer's absolute priority is to **Identify and Neutralize Secrets**. Any code contribution from a sub-agent must be scrutinized for sensitive data before any merge.
+The Reviewer's absolute priority is to **Identify and Neutralize Secrets** and to **Drive Automation**. Any code contribution from a sub-agent must be scrutinized for sensitive data and potential for scripting before any merge.
 
 ## 2. Audit Checklist
 Before any feature branch is merged into the `personal:kate-dev` branch, the Reviewer MUST check for:
-- **API Keys**: E.g., `sk-..., AKIA..., ...secret...`
-- **Secrets**: Password strings, database connection strings (with credentials).
-- **URLs**: Sensitive endpoint URLs or internal IP addresses (unless specifically required).
-- **Hardcoded Tokens**: Any session or authentication tokens.
+- **Secrets & Credentials**: API keys, tokens, passwords.
+- **Automation Potential**: Can this task be replaced by a script? If the sub-agent performed a manual sequence that is likely to be repeated (e.g., data formatting, environment setup), the Reviewer must request a script for it.
+- **Script Reuse**: Is there an existing script in `tools/` that could have been used? If so, the sub-agent should be steered to use it.
 
 ## 3. Secret Management Protocol
 If a secret is found in a sub-agent's contribution:
