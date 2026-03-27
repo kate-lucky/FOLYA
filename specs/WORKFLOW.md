@@ -29,7 +29,12 @@ This document defines the mandatory git workflow for all agents (including the O
 | **6** | Push to Personal kate-dev | Orchestrator | `personal:kate-dev` |
 | **7** | Create Merge Request | Orchestrator | `origin:kate-dev` |
 
-## 4. Safety Constraints
+## 4. Automated Cost Tracking (The Auditor)
+1.  **Background Monitoring**: A local cron job runs a script (`workspace/folya/tools/cost_auditor.sh`) every 4 hours to aggregate token usage and requests across all active agents.
+2.  **Milestone Logging**: The `REVIEWER` role (Orchestrator) automatically executes the cost tracking script before and after every merge to calculate the "Delta" for the specific task.
+3.  **Automated Reporting**: The cost auditor script automatically updates `MILESTONES.md` with the latest consumption data.
+
+## 5. Safety Constraints
 - **NO parallel local edits**: Only one agent may hold the "write lock" on a specific file at a time.
 - **NO direct pushes to origin/main**: The `main` branch is reserved for stable releases and is managed exclusively by the Human Supervisor (Unka).
 - **NO plain text secrets**: All API keys and deployment secrets must remain outside the git history.
