@@ -1,33 +1,33 @@
-# FOLYA Specification Guide: The Source of Truth 🐱💼
+# FOLYA Specification System: Entrance & Usage Guide 🐱💼
 
-This document explains the structure, purpose, and access control for the **FOLYA** specification system. All project participants (Orchestrator, Sub-Agents, and Human Supervisors) must understand these guidelines.
+This is the **Entrance File** for all project participants. It explains the purpose of every specification file in this directory and how they should be utilized by the Orchestrator, Sub-Agents, and Human Supervisors.
 
-## 1. Why do these specifications exist?
-The FOLYA project operates in a **high-security, multi-agent environment**. To prevent merge conflicts, data corruption, and catastrophic secret leaks, we require a "Hard Blueprint" that overrides any individual agent's default behavior. 
+## 1. Document Directory & Usage
 
-These specs turn a collection of AI models into a synchronized, professional engineering team.
-
-## 2. Directory Structure & Purpose
-
-| Path | Purpose | Target Audience |
+| File Path | Usage & Purpose | Target Audience |
 | :--- | :--- | :--- |
-| **`specs/ONBOARDING.md`** | The universal contract and safety rules. | All Sub-Agents |
-| **`specs/REDLINE.md`** | Absolute prohibitions (Zero-Secrets, Branch Protection). | All Agents & Orchestrator |
-| **`specs/WORKFLOW.md`** | The isolation protocol (Fork-and-PR, Port 443). | All Agents & Orchestrator |
-| **`specs/roles/`** | Granular responsibilities for specialized agents. | Specific Sub-Agents |
-| **`specs/ENVIRONMENT.md`** | The technical Docker and toolchain blueprint. | DevOps & Rust Coders |
-| **`specs/BEST_PRACTICES.md`** | Coding standards (Zero-Copy Rust, Error Handling). | Rust Coders & Auditors |
-| **`specs/EXTERNAL_RESOURCES.md`**| Authorized APIs, Crates, and Databases. | Data Engineers & Analysts |
+| **`specs/README.md`** | **Entrance**: High-level guide and table of contents. Start here. | Everyone |
+| **`specs/ONBOARDING.md`**| **Contract**: Mandatory safety and behavior agreement. | All Sub-Agents |
+| **`specs/REDLINE.md`** | **Restrictions**: Hard prohibitions (No secrets, Port 443). | All Agents |
+| **`specs/WORKFLOW.md`** | **Isolation**: Fork-and-PR logic and branch management. | All Agents |
+| **`specs/roles/*.md`** | **Mission**: Specialized responsibilities for each agent. | Assigned Agent |
+| **`specs/ENVIRONMENT.md`**| **Blueprint**: Technical Docker and toolchain environment. | DevOps/Rust Coder |
+| **`specs/BEST_PRACTICES.md`**| **Standards**: Coding quality and performance rules. | Rust Coder/Auditor |
+| **`specs/EXTERNAL_RESOURCES.md`**| **Inventory**: Authorized APIs, Crates, and Databases. | Data Eng/Analyst |
 
-## 3. How to Read These Files
-- **Mandatory Sequence**: All newly spawned agents must read `ONBOARDING.md` first, followed by `REDLINE.md` and their assigned role in `roles/`.
-- **Precedence**: In case of conflict, `REDLINE.md` and `WORKFLOW.md` always take precedence over role-specific instructions.
-- **Verification**: The Orchestrator (Kate) will audit all contributions against these specifications. Non-compliant work will be rejected.
+## 2. Mandatory Reading Sequence
+1.  **Orchestration Logic**: Read `README.md` (this file) to understand the landscape.
+2.  **Safety First**: Read `ONBOARDING.md` and `REDLINE.md` to establish non-negotiable boundaries.
+3.  **Process Awareness**: Read `WORKFLOW.md` to understand how to contribute code safely.
+4.  **Technical Deep-Dive**: Read the relevant `ENVIRONMENT`, `BEST_PRACTICES`, or `EXTERNAL_RESOURCES` for your task.
+5.  **Execution**: Read your specific role in `roles/`.
 
-## 4. Who Can Read Them?
-- **Public/Upstream**: All specifications are pushed to the `eBioRing/FOLYA` upstream repository for transparency and human review.
-- **Agents**: All agents have read-only access to the `specs/` directory within their local workspace.
-- **Human Supervisor**: Unka Malloc maintains final authority to edit or override any specification.
+## 3. Policy Precedence
+- **Safety Rules** (`REDLINE.md`) always override technical implementation details.
+- **Workflow Protocol** (`WORKFLOW.md`) always overrides individual agent preferences.
+
+---
+*Created by Kate (Professional Secretary & Agent Orchestrator)*
 
 ---
 *Created by Kate (Professional Secretary & Agent Orchestrator)*
