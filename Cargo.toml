@@ -4,6 +4,7 @@ version = "0.1.0"
 edition = "2021"
 
 [dependencies]
+<<<<<<< HEAD
 polars = { version = "0.38", features = ["lazy", "parquet", "csv", "temporal", "rolling_window", "rank"] }
 rayon = "1.8"
 tokio = { version = "1", features = ["full"] }
@@ -19,3 +20,10 @@ tracing-subscriber = "0.3"
 [dev-dependencies]
 criterion = "0.5"
 proptest = "1.4"
+=======
+polars = { version = "0.46", features = ["lazy", "csv", "temporal"] }
+thiserror = "1.0"
+
+[dev-dependencies]
+tempfile = "3.14"
+>>>>>>> personal/feat/data-engineer/m2-data-ingestion
