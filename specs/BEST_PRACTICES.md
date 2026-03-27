@@ -25,10 +25,12 @@ This document defines the architectural standards and coding practices for the *
 - **State Updates**: Prefer WebSockets for real-time price/order updates; reserve REST for configuration and historical queries.
 
 ## 5. Testing & Quality Assurance
+- **Automated Testing Policy**: For every coding task, a set of corresponding test cases must be implemented and executed. No code shall be considered "Done" until all tests pass.
 - **Unit Testing**: 80%+ coverage for core quant logic. Use `cargo test`.
-- **Integration Testing**: Test full flows (e.g., Order -> Execution -> Confirmation) using mock exchange APIs.
+- **Integration Testing**: Test full flows (e.g., Order -> Execution -> Confirmation) using mock exchange APIs. Located in `tests/`.
 - **Property-Based Testing**: Use `proptest` for validating complex trading algorithms against a wide range of inputs.
 - **Benchmarking**: Use `criterion.rs` to measure the latency of critical paths (order routing, signal generation).
+- **Test-Driven Implementation (TDI)**: Agents are encouraged to write test cases (even if empty) alongside implementation to ensure modularity.
 
 ## 6. Error Handling
 - **No `panic!`**: Never use `unwrap()` or `expect()` in production code.
