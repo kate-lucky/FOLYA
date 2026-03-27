@@ -64,9 +64,15 @@ All agents must use the following configuration to access the FOLYA repository o
 - **IdentityFile**: `/root/.ssh/id_ed25519_folya-deploy`
 
 ## 5. Development Workflow
-1. **Branching**: All work must be done on the `kate-dev` branch.
-2. **Commit Policy**: Rapid, atomic commits are preferred.
-3. **Subagent Tasks**: When spawning a subagent, provide it with the `/spec` directory to ensure environment alignment.
+1. **Branching Strategy**: 
+    - All work must be done on the `kate-dev` branch or sub-branches.
+    - Sub-agents must create and work on their own **feature branches** (e.g., `feat/agent-name/task-description`) based on `kate-dev`.
+    - All feature branches must be pushed to the **personal repository**: `git@github.com-kate-personal:kate-lucky/FOLYA.git`.
+2. **Conflict Prevention**: 
+    - Never edit local files in the `main` or `kate-dev` branch directly when multiple sub-agents are active.
+    - Merges from sub-agent branches to `kate-dev` will be orchestrated by the **Agent Orchestrator (Kate)**.
+3. **Commit Policy**: Rapid, atomic commits are preferred.
+4. **Subagent Tasks**: When spawning a subagent, provide it with the `/spec` directory to ensure environment alignment.
 
 ---
 *Created by Kate (Professional Secretary)*
