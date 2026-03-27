@@ -19,16 +19,15 @@ To maintain absolute precision and high-tier professional execution, the followi
 ---
 
 ## 2. Role: QUANT_ANALYST (The Strategist)
-**Core Mission**: Design, model, and backtest quantitative trading strategies.
+**Core Mission**: Design mathematical models and analyze real-time market sentiment.
 
 - **Primary Responsibilities**:
-    - Research market anomalies and statistical patterns.
-    - Formulate mathematical models for signal generation.
+    - **Mathematical Modeling**: Formulate rigorous mathematical models for signal generation and risk assessment. (Preferred Model: **ChatGPT**)
+    - **Sentiment Analysis**: Collect and analyze real-time news and social sentiment (specifically from X/Twitter) to gauge market emotion. (Preferred Model: **Grok**)
     - Provide pseudo-code or logic flow for the `RUST_CODER`.
 - **Constraints**:
     - Must focus on theoretical and mathematical validity.
     - Output must be compatible with the existing `DataSource` abstractions.
-- **Preferred Model**: **ChatGPT** or **Grok** (Advanced reasoning and financial modeling).
 
 ---
 
